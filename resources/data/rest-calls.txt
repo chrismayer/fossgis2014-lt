@@ -1,0 +1,12 @@
+curl -v -u admin:geoserver -XPOST -H "Content-type: text/xml" -d "<workspace><name>fossgis2014</name></workspace>" http://localhost:10080/geoserver243/rest/workspaces
+
+curl -v -u admin:geoserver -XPUT -H "Content-type: application/zip" --data-biry @bands.zip http://localhost:10080/geoserver243/rest/workspaces/fossgis2014/datastores/bands/file.shp
+
+curl -v -u admin:geoserver -XPOST -H "Content-type: text/xml" -d "<style><name>bands</name><filename>bands.sld</filename></style>" http://localhost:10080/geoserver243/rest/styles
+
+curl -v -u admin:geoserver -XPUT -H "Content-type: application/vnd.ogc.sld+xml" -d @bands.sld http://localhost:10080/geoserver243/rest/styles/roads_style
+
+curl -v -u admin:geoserver -XPUT -H "Content-type: text/xml" -d "<layer><defaultStyle><name>bands</name></defaultStyle></layer>" http://localhost:10080/geoserver243/rest/layers/fossgis2014:bands
+
+
+

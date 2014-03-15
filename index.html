@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=1024, user-scalable=no">
+
+<title>Best of the REST</title>
+
+<!-- Required stylesheet -->
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/core/deck.core.css">
+
+<!-- Extension CSS files go here. Remove or add as needed. -->
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/extensions/goto/deck.goto.css">
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/extensions/menu/deck.menu.css">
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/extensions/navigation/deck.navigation.css">
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/extensions/status/deck.status.css">
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/extensions/scale/deck.scale.css">
+
+<!-- Style theme. More available in /themes/style/ or create your own. -->
+<!--  -->
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/themes/style/swiss.css">
+
+<!--  -->
+<link rel="stylesheet" media="screen"
+	href="resources/css/presentation.css">
+
+<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+<link rel="stylesheet" media="screen"
+	href="resources/deck.js-latest/themes/transition/horizontal-slide.css">
+
+<!-- Basic black and white print styles -->
+<link rel="stylesheet" media="print"
+	href="resources/deck.js-latest/core/print.css">
+
+<!-- Required Modernizr file -->
+<script src="resources/deck.js-latest/modernizr.custom.js"></script>
+</head>
+<body>
+	<div class="deck-container">
+
+		<!-- Begin slides. Just make elements with a class of slide. -->
+
+		<section class="slide" id="title">
+			<!-- <h1>Best of the REST</h1> -->
+			<h2>Mein Shapefile als WMS in weniger als 5 Minuten</h2>
+			<img src="./resources/img/lt-title.png" 
+				alt="Christian Mayer" style="margin-top: 10%">
+			<img src="./resources/img/geoserver-logo-text.png" 
+				alt="Christian Mayer" style="margin-top: 2%">
+		</section>
+		
+		<section class="slide" id="about-me">
+			<h2>Christian Mayer</h2>
+			<ul>
+				<li>
+				    Anwendungsentwickler
+				    <a href="http://www.isb-ag.de/">ISB AG</a>
+				</li>
+				
+				<li>♛ Open Source ✌</li>
+				<li>Kernentwickler &hellip;
+				    <ul>
+					    <li>&hellip; GeoExt2</li>
+					    <li>&hellip; GeoExt Mobile (GXM)</li>
+					    <li>&hellip; SHOGun</li>
+				    </ul>
+				</li>
+				<li>Blogger <a href="http://meggsimum.de">www.meggsimum.de</a></li>
+			</ul>
+			<img src="./resources/img/cm.jpg" class="sideimage-right"
+				alt="Christian Mayer">
+		</section>
+		
+		<section class="slide" id="geoserver-rest-api">
+			<h2>GeoServer REST API</h2>
+			<div>
+				<h3>Dynamische Anpassung der GeoServer Instanz mittels einfacher HTTP-Aufrufe</h3>
+				<ul>
+					<li>GET - Abrufen</li>
+					<li>POST &amp; PUT - Ändern / Hinzufügen</li>
+					<li>DELETE - Löschen</li>
+					<li>über benannte Ressourcen (URLs)</li>
+				</ul>
+				
+				<pre>
+					<code>
+http://&lt;geoserver-url&gt;/rest/</code>
+				</pre>
+			</div>
+			
+			<h3>Dokumentation</h3>
+			<a href="http://docs.geoserver.org/stable/en/user/rest/">
+			http://docs.geoserver.org/stable/en/user/rest/</a>
+		</section>
+		
+		<section class="slide" id="publish-wms">
+			<h3>Auf Sendung?</h3>
+			<span>Anlegen eines Workspaces</span>
+			<pre>
+				<code>
+curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;workspace&gt;&lt;name&gt;<span class="code-highlight">fossgis2014</span>&lt;/name&gt;&lt;/workspace&gt;&quot; http://localhost:10080/geoserver243/rest/workspaces</code>
+			</pre>
+		
+			<h3>Eat This!</h3>
+			<span>Publizieren eines Shape-Files</span>
+			<pre>
+				<code>
+curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/zip&quot; --data-binary <span class="code-highlight">@bands.zip</span> http://localhost:10080/geoserver243/rest/workspaces/<span class="code-highlight">fossgis2014</span>/datastores/bands/file.shp</code>
+			</pre>
+		</section>
+
+		<section class="slide" id="check-wms-1">
+			<iframe
+				src="./resources/ol3-wms-demo/ol3-wms-demo.html"
+				width="99%" height="620" frameborder="0"></iframe>
+		</section>
+		
+		<section class="slide" id="style-wms">
+			<h3>Neuer Look?</h3>
+			<span>Anlegen eines neuen Styles</span>
+			<pre>
+				<code>
+curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;style&gt;&lt;name&gt;<span class="code-highlight">bands</span>&lt;/name&gt;&lt;filename&gt;<span class="code-highlight">bands.sld</span>&lt;/filename&gt;&lt;/style&gt;&quot; http://localhost:10080/geoserver243/rest/styles</code>
+			</pre>
+			<span>Upload eines SLD</span>
+			<pre>
+				<code>
+curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @<span class="code-highlight">bands.sld</span> http://localhost:10080/geoserver243/rest/styles/<span class="code-highlight">bands</span></code>
+			</pre>
+			
+			<h3>Be different!</h3>
+			<span>Neuer Style einem Layer zuweisen</span>
+			<pre>
+				<code>
+curl -v -u admin:geoserver -XPUT -H &quot;Content-type: text/xml&quot; -d &quot;<span class="code-highlight">&lt;layer&gt;&lt;defaultStyle&gt;&lt;name&gt;bands&lt;/name&gt;&lt;/defaultStyle&gt;&lt;/layer&gt;</span>&quot; http://localhost:10080/geoserver243/rest/layers/<span class="code-highlight">fossgis2014:bands</span></code>
+			</pre>
+		</section>
+		
+		<section class="slide" id="check-wms-2">
+			<iframe
+				src="./resources/ol3-wms-demo/ol3-wms-demo.html"
+				width="99%" height="620" frameborder="0"></iframe>
+		</section>
+		
+		<section class="slide" id="batch-publish">
+			<h3>Batch me if you can...</h3>
+			<pre>
+				<code>
+#!/bin/bash
+echo &quot;-------------------------------------------------------------&quot;
+echo &quot;create style $1 and add it as default style to layer $2 ...&quot;
+echo &quot;-------------------------------------------------------------&quot;
+echo &quot;&quot;
+
+curl -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;style&gt;&lt;name&gt;$1&lt;/name&gt;&lt;filename&gt;$1.sld&lt;/filename&gt;&lt;/style&gt;&quot; http://localhost:10080/geoserver243/rest/styles
+
+echo &quot;  - added the new style $1&quot;
+
+curl -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @$1.sld http://localhost:10080/geoserver243/rest/styles/bands2
+
+echo &quot;  - uploaded $1.sld in new style $1&quot;
+
+curl -u admin:geoserver -XPUT -H &quot;Content-type: text/xml&quot; -d &quot;&lt;layer&gt;&lt;defaultStyle&gt;&lt;name&gt;$1&lt;/name&gt;&lt;/defaultStyle&gt;&lt;/layer&gt;&quot; http://localhost:10080/geoserver243/rest/layers/fossgis2014:$2
+
+echo &quot;  - set $1 as default style for layer $2&quot;
+
+echo &quot;... done cause GeoServer REST API rocks!&quot;</code>
+			</pre>
+			<pre>
+				<code>
+&gt;&gt; add-default-style.bat bands2 bands</code>
+			</pre>
+		</section>
+
+		<div class="slide" id="imprint">
+			<h2>Impressum</h2>
+			<h3>Autor</h3>
+			<div>
+			    <address>
+				    Christian Mayer<br />
+				    ISB AG<br />
+				    Hindenburgstraße 32<br />
+				    55118 Mainz<br /> christian.mayer@isb-ag.de
+			    </address>
+			    <p id="social-media">
+				    (twitter) <a href="http://twitter.com/geofootballer">@geofootballer</a><br />
+				    (github) <a href="https://github.com/chrismayer">@chrismayer</a><br />
+				    (blog) <a href="http://meggsimum.de">www.meggsimum.de</a>
+			    </p>
+			</div>
+			<h3 style="clear:both;">Lizenz</h3>
+			<p id="license">
+				Diese Folien sind unter <a
+					href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>
+				veröffentlicht.
+			</p>
+		</div>
+
+		<!-- End slides. -->
+
+		<!-- Begin extension snippets. Add or remove as needed. -->
+
+		<!-- deck.navigation snippet -->
+		<div aria-role="navigation">
+			<a href="#" class="deck-prev-link" title="Previous">&#8592;</a> <a
+				href="#" class="deck-next-link" title="Next">&#8594;</a>
+		</div>
+
+		<!-- deck.status snippet -->
+		<p class="deck-status" aria-role="status">
+			<span class="deck-status-current"></span> / <span
+				class="deck-status-total"></span>
+		</p>
+
+		<!-- deck.goto snippet -->
+		<form action="." method="get" class="goto-form">
+			<label for="goto-slide">Go to slide:</label> <input type="text"
+				name="slidenum" id="goto-slide" list="goto-datalist">
+			<datalist id="goto-datalist"></datalist>
+			<input type="submit" value="Go">
+		</form>
+
+		<!-- End extension snippets. -->
+	</div>
+
+	<!-- Required JS files. -->
+	<script src="resources/deck.js-latest/jquery.min.js"></script>
+	<script src="resources/deck.js-latest/core/deck.core.js"></script>
+
+	<!-- Extension JS files. Add or remove as needed. -->
+	<script src="resources/deck.js-latest/extensions/menu/deck.menu.js"></script>
+	<script src="resources/deck.js-latest/extensions/goto/deck.goto.js"></script>
+	<script src="resources/deck.js-latest/extensions/status/deck.status.js"></script>
+	<script
+		src="resources/deck.js-latest/extensions/navigation/deck.navigation.js"></script>
+	<script src="resources/deck.js-latest/extensions/scale/deck.scale.js"></script>
+
+	<!-- Initialize the deck. You can put this in an external file if desired. -->
+	<script>
+        $(function() {
+            $.deck('.slide');
+        });
+    </script>
+</body>
+</html>

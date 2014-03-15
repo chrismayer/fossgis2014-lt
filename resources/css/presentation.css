@@ -1,0 +1,142 @@
+
+h2 {
+	color: #1B367A
+}
+
+.slide {
+	background-image: url("../img/isb-logo.png");
+	background-repeat: no-repeat;
+	background-position: 95% 99%;
+}
+
+.code-highlight {
+	color: #000;
+	font-weight: bold;
+}
+
+
+a, a:active, a:visited {
+	color: #1B367A;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #1B367A;
+	text-decoration: underline;
+}
+
+/* */ 
+.slide ul li,
+.slide p,
+.slide address {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: "LMSansDemiCond10", sans-serif;
+    letter-spacing: 0.05em;
+}
+
+.slide address, .slide #license {
+	font-size: 120%;
+	font-weight: bold;
+	font-family: "LMSansDemiCond10", sans-serif;
+	letter-spacing: 0.05em;
+}
+
+.slide #social-media {
+	margin-top: 20px;
+	font-size: 120%;
+}
+
+.slide ul li ul li {
+    font-size: 100%;
+} 
+
+.sideimage-right {
+    width: 20%;
+    position: absolute;
+    top: 150px;
+    right: 0;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 1em;
+  border: 1px solid #888;
+}
+
+
+pre {
+  border-color: #cde;
+  background: #fff;
+  position: relative;
+  z-index: auto;
+  border-radius: 5px;
+  /* http://nicolasgallagher.com/css-drop-shadows-without-images/ */
+}
+
+.csstransforms.boxshadow pre:before, .csstransforms.boxshadow pre:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  bottom: 15px;
+  width: 50%;
+  height: 20%;
+  max-width: 300px;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+}
+.csstransforms.boxshadow pre:before {
+  left: 10px;
+  -webkit-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.csstransforms.boxshadow pre:after {
+  right: 10px;
+  -webkit-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+
+/* slide-specific styles */
+
+.title-logo {
+	/* bottom: 50%; */
+	width: 50%;
+}
+
+#author-title {
+	/* position: absolute; */
+	text-align: right;
+    bottom: 10%;
+    right: 2%;
+    font-size: 1em;
+    font-weight: bold;
+    color: #444;
+}
+#author-title a {
+    color: #444;
+    font-family: courier, monospace;
+}
+
+#date-title {
+	position: absolute;
+    bottom: 10px;
+    left:  5px;
+    font-size: 19px;
+    color: #888;
+    margin: 0;
+}
+
+#about-isb .sideimage-right {
+	width: 300px;
+	top: 120px;
+}
+
+#geoext-codesprint-img img {
+	width: 90%;
+	height: 90%;
+}
+
