@@ -64,8 +64,7 @@
 				    Anwendungsentwickler
 				    <a href="http://www.isb-ag.de/">ISB AG</a>
 				</li>
-				
-				<li>♛ Open Source ✌</li>
+				<li>❤ Open Source rocks ✌</li>
 				<li>Kernentwickler &hellip;
 				    <ul>
 					    <li>&hellip; GeoExt2</li>
@@ -106,7 +105,7 @@ http://&lt;geoserver-url&gt;/rest/</code>
 			<span>Anlegen eines Workspaces</span>
 			<pre>
 				<code>
-curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;workspace&gt;&lt;name&gt;<span class="code-highlight">fossgis2014</span>&lt;/name&gt;&lt;/workspace&gt;&quot; http://localhost:10080/geoserver243/rest/workspaces</code>
+curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;workspace&gt;&lt;name&gt;fossgis2014</span>&lt;/name&gt;&lt;/workspace&gt;&quot; http://localhost:10080/geoserver243/rest/workspaces</code>
 			</pre>
 		
 			<h3>Eat This!</h3>
@@ -130,7 +129,7 @@ curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/zip&quot; --
 				<code>
 curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;style&gt;&lt;name&gt;<span class="code-highlight">bands</span>&lt;/name&gt;&lt;filename&gt;<span class="code-highlight">bands.sld</span>&lt;/filename&gt;&lt;/style&gt;&quot; http://localhost:10080/geoserver243/rest/styles</code>
 			</pre>
-			<span>Upload eines SLD</span>
+			<span>Import eines SLD in bestehnden Style</span>
 			<pre>
 				<code>
 curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @<span class="code-highlight">bands.sld</span> http://localhost:10080/geoserver243/rest/styles/<span class="code-highlight">bands</span></code>
@@ -176,7 +175,7 @@ echo &quot;... done cause GeoServer REST API rocks!&quot;</code>
 			</pre>
 			<pre>
 				<code>
-&gt;&gt; add-default-style.bat bands2 bands</code>
+&gt;&gt; add-default-style.bat newbandstyle bands</code>
 			</pre>
 		</section>
 
