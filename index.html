@@ -64,8 +64,7 @@
 				    Anwendungsentwickler
 				    <a href="http://www.isb-ag.de/">ISB AG</a>
 				</li>
-				
-				<li>♛ Open Source ✌</li>
+				<li>❤ Open Source rocks ✌</li>
 				<li>Kernentwickler &hellip;
 				    <ul>
 					    <li>&hellip; GeoExt2</li>
@@ -92,13 +91,18 @@
 				
 				<pre>
 					<code>
-http://&lt;geoserver-url&gt;/rest/</code>
+z.B.
+http://&lt;geoserver-url&gt;/rest/
+http://&lt;geoserver-url&gt;/rest/workspaces/
+http://&lt;geoserver-url&gt;/rest/workspaces/xyz/datastores/
+http://&lt;geoserver-url&gt;/rest/layers/xyz:abc</code>
 				</pre>
 			</div>
 			
+			<!--
 			<h3>Dokumentation</h3>
 			<a href="http://docs.geoserver.org/stable/en/user/rest/">
-			http://docs.geoserver.org/stable/en/user/rest/</a>
+			http://docs.geoserver.org/stable/en/user/rest/</a>-->
 		</section>
 		
 		<section class="slide" id="publish-wms">
@@ -106,14 +110,14 @@ http://&lt;geoserver-url&gt;/rest/</code>
 			<span>Anlegen eines Workspaces</span>
 			<pre>
 				<code>
-curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;workspace&gt;&lt;name&gt;<span class="code-highlight">fossgis2014</span>&lt;/name&gt;&lt;/workspace&gt;&quot; http://localhost:10080/geoserver243/rest/workspaces</code>
+curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;<span class="code-highlight">&lt;workspace&gt;&lt;name&gt;fossgis2014&lt;/name&gt;&lt;/workspace&gt;</span>&quot; http://localhost:10080/geoserver243/rest/workspaces</code>
 			</pre>
 		
 			<h3>Eat This!</h3>
 			<span>Publizieren eines Shape-Files</span>
 			<pre>
 				<code>
-curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/zip&quot; --data-binary <span class="code-highlight">@bands.zip</span> http://localhost:10080/geoserver243/rest/workspaces/<span class="code-highlight">fossgis2014</span>/datastores/bands/file.shp</code>
+curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/zip&quot; --data-binary <span class="code-highlight">@bands.zip</span> http://localhost:10080/geoserver243/rest/workspaces/<span class="code-highlight">fossgis2014</span>/datastores/<span class="code-highlight">bands</span>/file.shp</code>
 			</pre>
 		</section>
 
@@ -124,19 +128,19 @@ curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/zip&quot; --
 		</section>
 		
 		<section class="slide" id="style-wms">
-			<h3>Neuer Look?</h3>
+			<h3>New Dress?</h3>
 			<span>Anlegen eines neuen Styles</span>
 			<pre>
 				<code>
 curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&lt;style&gt;&lt;name&gt;<span class="code-highlight">bands</span>&lt;/name&gt;&lt;filename&gt;<span class="code-highlight">bands.sld</span>&lt;/filename&gt;&lt;/style&gt;&quot; http://localhost:10080/geoserver243/rest/styles</code>
 			</pre>
-			<span>Upload eines SLD</span>
+			<span>Import eines SLD in neuen Style</span>
 			<pre>
 				<code>
 curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @<span class="code-highlight">bands.sld</span> http://localhost:10080/geoserver243/rest/styles/<span class="code-highlight">bands</span></code>
 			</pre>
 			
-			<h3>Be different!</h3>
+			<h3>Suit Up!</h3>
 			<span>Neuer Style einem Layer zuweisen</span>
 			<pre>
 				<code>
@@ -176,7 +180,7 @@ echo &quot;... done cause GeoServer REST API rocks!&quot;</code>
 			</pre>
 			<pre>
 				<code>
-&gt;&gt; add-default-style.bat bands2 bands</code>
+&gt;&gt; add-default-style.bat newbandstyle bands</code>
 			</pre>
 		</section>
 
