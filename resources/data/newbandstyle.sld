@@ -1,53 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sld:StyledLayerDescriptor xmlns="http://www.opengis.net/sld" xmlns:sld="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml" version="1.0.0">
 	<sld:NamedLayer>
-		<sld:Name>bands</sld:Name>
+		<sld:Name>newbandstyle</sld:Name>
 		<sld:UserStyle>
-			<sld:Name>bands</sld:Name>
+			<sld:Name>newbandstyle</sld:Name>
 			<sld:FeatureTypeStyle>
 				<sld:Name>name</sld:Name>
 				<sld:Rule>
-					<sld:Name>Single symbol</sld:Name>
-					<PointSymbolizer>
-						<Graphic>
-							<Mark>
-								<WellKnownName>star</WellKnownName>
-								<Fill>
-									<CssParameter name="fill">#FFFF00</CssParameter>
-								</Fill>
-								<Stroke>
-									<CssParameter name="fill">#00FFFF</CssParameter>
-								</Stroke>
-							</Mark>
-							<Size>12</Size>
-						</Graphic>
-					</PointSymbolizer>
-					<TextSymbolizer>
-						<Label>
+					<sld:Name>Metallica</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
 							<ogc:PropertyName>band</ogc:PropertyName>
-						</Label>
-						<Font>
-							<CssParameter name="font-family">Arial</CssParameter>
-							<CssParameter name="font-size">16</CssParameter>
-							<CssParameter name="font-style">normal</CssParameter>
-							<CssParameter name="font-weight">bold</CssParameter>
-						</Font>
-						<LabelPlacement>
-							<PointPlacement>
-								<AnchorPoint>
-									<AnchorPointX>0.5</AnchorPointX>
-									<AnchorPointY>0.0</AnchorPointY>
-								</AnchorPoint>
-								<Displacement>
-									<DisplacementX>0</DisplacementX>
-									<DisplacementY>5</DisplacementY>
-								</Displacement>
-							</PointPlacement>
-						</LabelPlacement>
-						<Fill>
-							<CssParameter name="fill">#FF0000</CssParameter>
-						</Fill>
-					</TextSymbolizer>
+							<ogc:Literal>Metallica</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#8833CC</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>18</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>U2</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>band</ogc:PropertyName>
+							<ogc:Literal>U2</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:WellKnownName>circle</sld:WellKnownName>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#0EEE00</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>12</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>ACDC</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>band</ogc:PropertyName>
+							<ogc:Literal>AC/DC</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:WellKnownName>circle</sld:WellKnownName>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#0033CC</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>16</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>TheWho</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>band</ogc:PropertyName>
+							<ogc:Literal>The Who</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:WellKnownName>triangle</sld:WellKnownName>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#883300</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>18</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>Volbeat</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>band</ogc:PropertyName>
+							<ogc:Literal>Volbeat</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:WellKnownName>star</sld:WellKnownName>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#440011</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>20</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>Scorpions</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>band</ogc:PropertyName>
+							<ogc:Literal>Scorpions</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:WellKnownName>star</sld:WellKnownName>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#110088</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>14</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>Kiss</sld:Name>
+					<sld:Title>foobar</sld:Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>band</ogc:PropertyName>
+							<ogc:Literal>Kiss</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<sld:PointSymbolizer>
+						<sld:Graphic>
+							<sld:Mark>
+								<sld:WellKnownName>star</sld:WellKnownName>
+								<sld:Fill>
+									<sld:CssParameter name="fill">#111111</sld:CssParameter>
+								</sld:Fill>
+							</sld:Mark>
+							<sld:Size>28</sld:Size>
+						</sld:Graphic>
+					</sld:PointSymbolizer>
+				</sld:Rule>
+				<sld:Rule>
+					<sld:Name>Single symbol</sld:Name>
+					<sld:TextSymbolizer>
+						<sld:Label>
+							<ogc:PropertyName>band</ogc:PropertyName>
+						</sld:Label>
+						<sld:Font>
+							<sld:CssParameter name="font-family">Viner Hand ITC</sld:CssParameter>
+							<sld:CssParameter name="font-size">16</sld:CssParameter>
+							<sld:CssParameter name="font-style">normal</sld:CssParameter>
+							<sld:CssParameter name="font-weight">bold</sld:CssParameter>
+						</sld:Font>
+						<sld:LabelPlacement>
+							<sld:PointPlacement>
+								<sld:AnchorPoint>
+									<sld:AnchorPointX>1.0</sld:AnchorPointX>
+									<sld:AnchorPointY>0.0</sld:AnchorPointY>
+								</sld:AnchorPoint>
+								<sld:Rotation>90</sld:Rotation>
+							</sld:PointPlacement>
+						</sld:LabelPlacement>
+						<sld:Fill>
+							<sld:CssParameter name="fill">#118808</sld:CssParameter>
+						</sld:Fill>
+					</sld:TextSymbolizer>
 				</sld:Rule>
 			</sld:FeatureTypeStyle>
 		</sld:UserStyle>
