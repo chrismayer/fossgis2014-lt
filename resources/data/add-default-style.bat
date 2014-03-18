@@ -8,7 +8,7 @@ curl -u admin:geoserver -XPOST -H "Content-type: text/xml" -d "<style><name>$1</
 
 echo "  - added the new style $1"
 
-curl -u admin:geoserver -XPUT -H "Content-type: application/vnd.ogc.sld+xml" -d @$1.sld http://localhost:10080/geoserver243/rest/styles/bands2
+curl -u admin:geoserver -XPUT -H "Content-type: application/vnd.ogc.sld+xml" -d @$1.sld http://localhost:10080/geoserver243/rest/styles/$1
 
 echo "  - uploaded $1.sld in new style $1"
 
