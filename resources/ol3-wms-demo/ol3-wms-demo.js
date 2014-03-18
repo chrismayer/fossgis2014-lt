@@ -13,7 +13,16 @@ function init() {
                 params: {
                     LAYERS: 'OSM-WMS',
                     VERSION: '1.1.1'
-                }
+                },
+                attributions: [new ol.Attribution({
+                    html: '&copy; WMS: ' +
+                        '<a href="http://terrestris.de/">' +
+                        'terrestris GmbH & Co. KG</a> <br>' + 
+                        '&copy; Data: ' +
+                        '<a href="http://openstreetmap.org/">' +
+                        'OpenStreetMap and Contributors</a>'
+                  })
+               ]
             })
         }),
         new ol.layer.Tile({
