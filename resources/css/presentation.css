@@ -1,10 +1,10 @@
 
 h2 {
-	color: #1B367A
+	/* color: #1B367A */
 }
 
 .slide {
-	background-image: url("../img/isb-logo.png");
+	/* background-image: url("../img/isb-logo.png"); */
 	background-repeat: no-repeat;
 	background-position: 95% 99%;
 }
@@ -16,12 +16,12 @@ h2 {
 
 
 a, a:active, a:visited {
-	color: #1B367A;
+	/* color: #1B367A; */
 	text-decoration: none;
 }
 
 a:hover, a:focus {
-	color: #1B367A;
+	/* color: #1B367A; */
 	text-decoration: underline;
 }
 
