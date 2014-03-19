@@ -174,7 +174,7 @@ curl -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;&l
 
 echo &quot;  - added the new style $1&quot;
 
-curl -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @$1.sld http://localhost:10080/geoserver243/rest/styles/bands2
+curl -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @$1.sld http://localhost:10080/geoserver243/rest/styles/$1
 
 echo &quot;  - uploaded $1.sld in new style $1&quot;
 
