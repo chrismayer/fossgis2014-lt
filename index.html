@@ -51,19 +51,22 @@
 		<section class="slide" id="title">
 			<!-- <h1>Best of the REST</h1> -->
 			<h2>Mein Shapefile als WMS in weniger als 5 Minuten</h2>
-			<img src="./resources/img/lt-title.png" 
+			<img src="./resources/img/lt-title.png"
 				alt="Christian Mayer" style="margin-top: 10%">
-			<img src="./resources/img/geoserver-logo-text.png" 
+			<img src="./resources/img/geoserver-logo-text.png"
 				alt="Christian Mayer" style="margin-top: 2%">
+				<p style="margin-top: 120px; color: black; font-size: 1em;" >
+					Christian Mayer, meggsimum
+					<br>
+					FOSSGIS 2014, Berlin
+				</p>
 		</section>
-		
+
 		<section class="slide" id="about-me">
 			<h2>Christian Mayer</h2>
 			<ul>
-				<li>
-				    Anwendungsentwickler
-				    <a href="http://www.isb-ag.de/">ISB AG</a>
-				</li>
+				<li>Geoinformatiker</li>
+				<li>Leiter und Gründer von <a href="https://meggsimum.de">meggsimum</a></li>
 				<li>❤ Open Source rocks ✌</li>
 				<li>Kernentwickler &hellip;
 				    <ul>
@@ -72,12 +75,14 @@
 					    <li>&hellip; SHOGun</li>
 				    </ul>
 				</li>
-				<li>Blogger <a href="http://meggsimum.de">www.meggsimum.de</a></li>
+				<li>OSGeo Charter Member</li>
+				<li>Aktives FOSSGIS e.V. Mitglied</li>
+				<li>Pressereferent VDV Rheinland-Pfalz</li>
 			</ul>
 			<img src="./resources/img/cm.jpg" class="sideimage-right"
 				alt="Christian Mayer">
 		</section>
-		
+
 		<section class="slide" id="geoserver-rest-api">
 			<h2>GeoServer REST API</h2>
 			<div>
@@ -88,7 +93,7 @@
 					<li>DELETE - Löschen</li>
 					<li>über benannte Ressourcen (URLs)</li>
 				</ul>
-				
+
 				<pre>
 					<code>
 z.B.
@@ -98,7 +103,7 @@ http://&lt;geoserver-url&gt;/rest/workspaces/xyz/datastores/
 http://&lt;geoserver-url&gt;/rest/layers/xyz:abc</code>
 				</pre>
 			</div>
-			
+
 			<!--
 			<h3>Dokumentation</h3>
 			<a href="http://docs.geoserver.org/stable/en/user/rest/">
@@ -110,7 +115,7 @@ http://&lt;geoserver-url&gt;/rest/layers/xyz:abc</code>
 				src="./resources/ol3-wms-demo/ol3-wms-demo.html"
 				width="99%" height="620" frameborder="0"></iframe>
 		</section>
-		
+
 		<section class="slide" id="publish-wms">
 			<h3>Auf Sendung?</h3>
 			<span>Anlegen eines Workspaces</span>
@@ -118,7 +123,7 @@ http://&lt;geoserver-url&gt;/rest/layers/xyz:abc</code>
 				<code>
 curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot;<span class="code-highlight">&lt;workspace&gt;&lt;name&gt;fossgis2014&lt;/name&gt;&lt;/workspace&gt;</span>&quot; http://localhost:10080/geoserver243/rest/workspaces</code>
 			</pre>
-		
+
 			<h3>Eat This!</h3>
 			<span>Publizieren eines Shape-Files</span>
 			<pre>
@@ -132,7 +137,7 @@ curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/zip&quot; --
 				src="./resources/ol3-wms-demo/ol3-wms-demo.html"
 				width="99%" height="620" frameborder="0"></iframe>
 		</section>
-		
+
 		<section class="slide" id="style-wms">
 			<h3>New Dress?</h3>
 			<span>Anlegen eines neuen Styles</span>
@@ -145,7 +150,7 @@ curl -v -u admin:geoserver -XPOST -H &quot;Content-type: text/xml&quot; -d &quot
 				<code>
 curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+xml&quot; -d @<span class="code-highlight">bands.sld</span> http://localhost:10080/geoserver243/rest/styles/<span class="code-highlight">bands</span></code>
 			</pre>
-			
+
 			<h3>Suit Up!</h3>
 			<span>Neuer Style einem Layer zuweisen</span>
 			<pre>
@@ -153,13 +158,13 @@ curl -v -u admin:geoserver -XPUT -H &quot;Content-type: application/vnd.ogc.sld+
 curl -v -u admin:geoserver -XPUT -H &quot;Content-type: text/xml&quot; -d &quot;<span class="code-highlight">&lt;layer&gt;&lt;defaultStyle&gt;&lt;name&gt;bands&lt;/name&gt;&lt;/defaultStyle&gt;&lt;/layer&gt;</span>&quot; http://localhost:10080/geoserver243/rest/layers/<span class="code-highlight">fossgis2014:bands</span></code>
 			</pre>
 		</section>
-		
+
 		<section class="slide" id="check-wms-2">
 			<iframe
 				src="./resources/ol3-wms-demo/ol3-wms-demo.html"
 				width="99%" height="620" frameborder="0"></iframe>
 		</section>
-		
+
 		<section class="slide" id="batch-publish">
 			<h3>Batch me if you can...</h3>
 			<pre>
@@ -196,14 +201,14 @@ echo &quot;... done cause GeoServer REST API rocks!&quot;</code>
 			<div>
 			    <address>
 				    Christian Mayer<br />
-				    ISB AG<br />
-				    Hindenburgstraße 32<br />
-				    55118 Mainz<br /> christian.mayer@isb-ag.de
+				    meggsimum<br />
+				    Hauptstraße 165a<br />
+				    67125 Dannstadt-Schauernheim<br /> chris@meggsimum.de
 			    </address>
 			    <p id="social-media">
-				    (twitter) <a href="http://twitter.com/geofootballer">@geofootballer</a><br />
+						(web)   <a href="https://meggsimum.de">www.meggsimum.de</a><br />
+				    (twitter) <a href="https://twitter.com/geofootballer">@geofootballer</a><br />
 				    (github) <a href="https://github.com/chrismayer">@chrismayer</a><br />
-				    (blog) <a href="http://meggsimum.de">www.meggsimum.de</a>
 			    </p>
 			</div>
 			<h3 style="clear:both;">Lizenz</h3>
